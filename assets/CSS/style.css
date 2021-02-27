@@ -1,0 +1,14 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.8fr 1.1fr 1.1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "header header header header"
+      "aside current-weather current-weather current-weather"
+      "aside weather-forcast weather-forcast weather-forcast";
+  }
+  .header { grid-area: header; }
+  .aside { grid-area: aside; }
+  .current-weather { grid-area: current-weather; }
+  .weather-forcast { grid-area: weather-forcast; }

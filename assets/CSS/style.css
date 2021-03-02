@@ -1,8 +1,8 @@
+
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(248, 242, 242);
-  font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
@@ -13,14 +13,16 @@ body {
     gap: 0px 0px;
     grid-template-areas:
       "header header header header"
-      "aside current-weather current-weather current-weather"
+      "aside weather-container weather-container weather-container"
       "aside weather-forcast weather-forcast weather-forcast";
   }
   .header { 
     grid-area: header;
     background-color: rgb(29, 29, 61);
     color: white;
-    height: 200px;
+    height: 150px;
+    margin-bottom: 0;
+  
    }
 
    .header h1 {
@@ -29,9 +31,17 @@ body {
      font-size: 3em;
    }
   .aside { 
-    margin: 1em;
     grid-area: aside;
     border: 2px solid rgb(29, 29, 61); 
+    /* border-left: none; */
+    border-radius: 2px;
+    background-color: rgb(208, 238, 238);
+    margin-right: 10%;
+    margin-top: 0;
+  }
+
+  .aside p {
+    margin-left: 1em;
   }
 
 input[type="text"] {
@@ -40,13 +50,26 @@ input[type="text"] {
   margin-left: 1em;
   
 }
-.fa-save {
-  border: transparent;
-  
+button {
+  height: 2em;
 }
 
 
 
+  .container { 
+    grid-area: weather-container; 
+    margin-top: 1em;
 
-  .current-weather { grid-area: current-weather; }
+  }
+
+.current-weather {
+  width: 100%;
+  border: 2px solid gray;
+  border-right: none;
+}
+.weather {
+  margin-left: 1em;
+}
+
+
   .weather-forcast { grid-area: weather-forcast; }

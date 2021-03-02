@@ -8,7 +8,18 @@
       "aside current-weather current-weather current-weather"
       "aside weather-forcast weather-forcast weather-forcast";
   }
-  .header { grid-area: header; }
+  .header { 
+    grid-area: header;
+    background-color: rgb(29, 29, 61);
+    color: white;
+    height: 200px;
+   }
+
+   .header h1 {
+     text-align: center;
+     padding-top: 50px;
+     font-size: 3em;
+   }
   .aside { grid-area: aside; }
   .current-weather { grid-area: current-weather; }
   .weather-forcast { grid-area: weather-forcast; }

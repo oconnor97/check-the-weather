@@ -10,16 +10,26 @@ var uvIndex = $('#uvIndex');
 
 // api call
 
-// var getUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+inputValue.val+'&appid=0ecab4d27a41d8e0ccd885f7bc5922d7'
+// var getUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+inputValue.val()+'&appid=0ecab4d27a41d8e0ccd885f7bc5922d7'
 
 searchBtn.on('click', function(event) {
   event.preventDefault();
    
   console.log(inputValue.val())
   
-  fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.val()+'&appid=0ecab4d27a41d8e0ccd885f7bc5922d7')
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.val()+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7')
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      // var cityNameValue = data[7]
+      cityName.text(data.name + " " + moment().format('L'));
+      temp.text('Temerature: ' + data.main.temp + ' ℉');
+      humid.text('Humidity: ' + data.main.humidity + ' %');
+      wind.text('Wind Speed: ' + data.wind.speed + ' MPH');
+    })
   
-    .catch(err => alert('not a city'))
+    .catch(() => {
+      console.error('not a city');
+  })
+  
 });

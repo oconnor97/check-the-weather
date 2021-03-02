@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/CSS/style.css">
     <title>Weather Tracker</title>
 
@@ -12,7 +18,16 @@
         <div class="header">
             <h1>Check The Weather!</h1>
         </div>
-        <div class="aside"></div>
+        <div class="aside">
+            <p>Search for a City!</p>
+            <div class="form">
+                <input type="text" id="inputValue" placeholder="City">
+                <a><i class="fas fa-search"></i></a>
+                <ul id="history">
+
+                </ul>
+            </div>
+        </div>
         <div class="current-weather"></div>
         <div class="weather-forcast"></div>
       </div>

@@ -34,7 +34,7 @@ body {
     grid-area: aside;
     border: 2px solid rgb(29, 29, 61); 
     /* border-left: none; */
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: rgb(208, 238, 238);
     margin-right: 10%;
     margin-top: 0;
@@ -59,13 +59,16 @@ button {
   .container { 
     grid-area: weather-container; 
     margin-top: 1em;
+    border: 2px solid gray;
+    border-right: none;
+    border-radius: 5px;
+    background-color: rgb(208, 238, 238);
 
   }
 
 .current-weather {
   width: 100%;
-  border: 2px solid gray;
-  border-right: none;
+ 
 }
 .weather {
   margin-left: 1em;
@@ -73,3 +76,9 @@ button {
 
 
   .weather-forcast { grid-area: weather-forcast; }
+
+  .card-body {
+    background-color: rgb(29, 29, 61);
+    color: white;
+    border-radius: 5px;
+  }

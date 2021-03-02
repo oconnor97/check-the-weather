@@ -26,6 +26,9 @@ searchBtn.on('click', function(event) {
       temp.text('Temerature: ' + data.main.temp + ' ℉');
       humid.text('Humidity: ' + data.main.humidity + ' %');
       wind.text('Wind Speed: ' + data.wind.speed + ' MPH');
+      var longitude = data.coord.lon;
+      var lattitude = data.coord.lat;
+      console.log(lattitude, longitude);
     })
   
     .catch(() => {

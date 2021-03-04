@@ -59,8 +59,7 @@ button {
   .container { 
     grid-area: weather-container; 
     margin-top: 1em;
-    border: 2px solid gray;
-    border-right: none;
+    border: 2px solid rgb(29, 29, 61);
     border-radius: 5px;
     background-color: rgb(208, 238, 238);
 
@@ -81,4 +80,20 @@ button {
     background-color: rgb(29, 29, 61);
     color: white;
     border-radius: 5px;
+  }
+
+
+  .favorable {
+    background-color: green;
+    color: white;
+  }
+
+  .moderate {
+    background-color: yellow;
+    color: white;
+  }
+
+  .severe {
+    background-color: red;
+    color: white;
   }

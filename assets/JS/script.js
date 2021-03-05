@@ -28,6 +28,9 @@ function getHistory() {
 };
 
 getHistory();
+
+
+
 // function to retrieve data from the api
 function search(event) {
   event.preventDefault();
@@ -132,7 +135,7 @@ fetch(getUrl)
         })
         
 
-        let uvVal = parseFloat(uviNumber.textContent)
+        let uvVal = uviNumber
         console.log(uvVal)
         if(uvVal < 3) {
           uviNumber.addClass('favorable');

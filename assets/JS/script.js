@@ -18,17 +18,11 @@ searchBtn.on('click', search);
 
 var searchList = $(".history");
 function getHistory() {
-  console.log(searchList);
-  // for (var i = 0; i < localStorage.length; i++) {
 
-  //   var cityHistory = localStorage.getItem(i);
-  //   searchList.append("<li>" + cityHistory + "</li>");
-  // }
   var histories =JSON.parse(localStorage.getItem('cities'));
-  console.log(histories);
   if (histories) {
     histories.forEach(history => {
-      searchList.append(`<button>${history}</button>`);
+      searchList.append(`<li>${history}</li>`);
     })
   }
 };
@@ -50,7 +44,6 @@ getHistory();
 // api url for the initial fetch request
 var getUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+inputValue.val()+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7'
 
-console.log(inputValue.val())
 
 //grabbing the data and setting the values to HTML elements 
 
@@ -84,7 +77,8 @@ fetch(getUrl)
           console.log(data);
           uviNumber.text(data.current.uvi);
         })
-        console.log(uviNumber);
+        
+
         let uvVal = parseFloat(uviNumber.textContent)
         console.log(uvVal)
         if(uvVal < 3) {
@@ -95,7 +89,7 @@ fetch(getUrl)
           uviNumber.addClass('severe')
         };
       
-      console.log(lattitude, longitude);
+      
     })
 
   
@@ -104,3 +98,9 @@ fetch(getUrl)
   })
   
 };
+
+let fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q='+inputValue.val()+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7'
+
+fetch(fiveDayUrl)
+  .then(response => response.json())
+  .then

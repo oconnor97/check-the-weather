@@ -66,6 +66,60 @@ fetch(getUrl)
       var lattitude = data.coord.lat;
 
 
+      // 5 day api call
+      let fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q='+inputValue.val()+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7'
+      
+      fetch(fiveDayUrl)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          // day one of 5 day forecast
+          $('#day1').text(moment().add(1, 'days').format('MM-DD-YYYY'));
+          $('.five-day-icon').show();
+          let dayOneIcon = data.list[0].weather[0].icon;
+          let dayOneUrl = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png";
+          $('#logo1').attr('src', dayOneUrl);
+          $('#temp1').text('Temp: ' + data.list[0].main.temp + ' ℉')
+          $('#humid1').text('Humidity ' + data.list[0].main.humidity + '%')
+
+          // day two of 5 day forecast
+          $('#day2').text(moment().add(2, 'days').format('MM-DD-YYYY'));
+          let dayTwoIcon = data.list[1].weather[0].icon;
+          let dayTwoUrl = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
+          $('#logo2').attr('src', dayTwoUrl);
+          $('#temp2').text('Temp: ' + data.list[1].main.temp + ' ℉')
+          $('#humid2').text('Humidity ' + data.list[1].main.humidity + '%')
+
+            // day three of 5 day forecast
+            $('#day3').text(moment().add(3, 'days').format('MM-DD-YYYY'));
+            let dayThreeIcon = data.list[2].weather[0].icon;
+            let dayThreeUrl = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
+            $('#logo3').attr('src', dayThreeUrl);
+            $('#temp3').text('Temp: ' + data.list[2].main.temp + ' ℉')
+            $('#humid3').text('Humidity ' + data.list[2].main.humidity + '%')
+
+            // day four of 5 day forecast
+            $('#day4').text(moment().add(4, 'days').format('MM-DD-YYYY'));
+            let dayFourIcon = data.list[3].weather[0].icon;
+            let dayFourUrl = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png";
+            $('#logo4').attr('src', dayFourUrl);
+            $('#temp4').text('Temp: ' + data.list[3].main.temp + ' ℉')
+            $('#humid4').text('Humidity ' + data.list[3].main.humidity + '%')
+
+             // day ffive of 5 day forecast
+             $('#day5').text(moment().add(5, 'days').format('MM-DD-YYYY'));
+             let dayFiveIcon = data.list[4].weather[0].icon;
+             let dayFiveUrl = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
+             $('#logo5').attr('src', dayFiveUrl);
+             $('#temp5').text('Temp: ' + data.list[4].main.temp + ' ℉')
+             $('#humid5').text('Humidity ' + data.list[4].main.humidity + '%')
+   
+  
+
+          
+
+        })
+
       // api url for the fetch request returning the uv index
       var uviUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lattitude+'&lon='+longitude+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7';
 
@@ -74,7 +128,6 @@ fetch(getUrl)
       fetch(uviUrl)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           uviNumber.text(data.current.uvi);
         })
         
@@ -90,17 +143,15 @@ fetch(getUrl)
         };
       
       
-    })
+      })
+
+
 
   
     .catch(() => {
       console.error('not a city');
+
+      
   })
   
 };
-
-let fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q='+inputValue.val()+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7'
-
-fetch(fiveDayUrl)
-  .then(response => response.json())
-  .then

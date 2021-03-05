@@ -72,7 +72,9 @@ button {
 /* .weather {
   text-align: center;
 } */
-
+.five-day-icon {
+  display: none;
+}
 #wIcon {
   display: none;
 }
@@ -112,4 +114,4 @@ button {
     width: 100%;
     margin-bottom: 1em;
   }
-
+  

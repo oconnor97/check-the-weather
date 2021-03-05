@@ -69,8 +69,12 @@ button {
   width: 100%;
  
 }
-.weather {
+/* .weather {
   text-align: center;
+} */
+
+#wIcon {
+  display: none;
 }
 
 

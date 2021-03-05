@@ -142,7 +142,7 @@ fetch(getUrl)
         } else if (uvVal > 3 && uvVal < 7) {
           uviNumber.addClass('moderate');
         } else {
-          uviNumber.addClass('severe')
+          uviNumber.addClass('moderate')
         };
       
       

@@ -1,7 +1,7 @@
 
 
 body {
-  background-color: white;
+  background-color: rgb(150, 149, 149);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -18,10 +18,12 @@ body {
   }
   .header { 
     grid-area: header;
-    background-color: rgb(29, 29, 61);
+    background-color: #2e97ff;
+    ;
     color: white;
     height: 150px;
     margin-bottom: 0;
+    border-bottom:black;
   
    }
 
@@ -32,11 +34,12 @@ body {
    }
   .aside { 
     grid-area: aside;
-    border: 2px solid rgb(29, 29, 61); 
+    border: 2px solid black; 
     /* border-left: none; */
     border-radius: 5px;
-    background-color: rgb(208, 238, 238);
+    background-color: #f2f3f2;
     margin-right: 10%;
+    margin-left: 10%;
     margin-top: 0;
   }
 
@@ -59,9 +62,10 @@ button {
   .container { 
     grid-area: weather-container; 
     margin-top: 1em;
-    border: 2px solid rgb(29, 29, 61);
+    border: 2px solid black;
     border-radius: 5px;
-    background-color: rgb(208, 238, 238);
+    background-color: #2e97ff;
+    color: white;
 
   }
 
@@ -77,15 +81,17 @@ button {
 }
 #wIcon {
   display: none;
+  /* background-color: #2e97ff; */
 }
 
 
   .weather-forcast { grid-area: weather-forcast; }
 
   .card-body {
-    background-color: rgb(29, 29, 61);
+    background-color: #2e97ff;
     color: white;
     border-radius: 5px;
+    border-color: black;
   }
 
 
@@ -110,7 +116,7 @@ button {
   
   li {
     list-style: none;
-    border-bottom: 1px solid rgb(29, 29, 61);
+    border-bottom: 1px solid black;
     width: 100%;
     margin-bottom: 1em;
   }

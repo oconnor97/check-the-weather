@@ -32,7 +32,7 @@ getHistory();
 
 
 // function to retrieve data from the api
-function search(event) {
+async function search(event) {
   event.preventDefault();
   
 cities.push(inputValue.val());
@@ -50,6 +50,7 @@ var getUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+inputValue.val
 
 //grabbing the data and setting the values to HTML elements 
 
+  
 fetch(getUrl)
     .then(response => response.json())
     .then(data => {
@@ -67,6 +68,32 @@ fetch(getUrl)
       wind.text('Wind Speed: ' + data.wind.speed + ' MPH');
       var longitude = data.coord.lon;
       var lattitude = data.coord.lat;
+
+        // api url for the fetch request returning the uv index
+        var uviUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lattitude+'&lon='+longitude+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7';
+
+        //Getting the uvIndex from a second api and setting the value to HTML elements, then chaning the class based on the number. 
+  
+        fetch(uviUrl)
+          .then(response => response.json())
+          .then(data => {
+            uviNumber.text(data.current.uvi);
+            console.log(uviNumber.text())
+            let uvVal = parseFloat(uviNumber.text())
+    
+            if(uvVal < 3) {
+              uviNumber.addClass('favorable');
+            } else if (uvVal > 3 && uvVal < 7) {
+              uviNumber.addClass('moderate');
+            } else {
+              uviNumber.addClass('severe')
+            };
+          })
+          
+  
+          })
+
+
 
 
       // 5 day api call
@@ -123,30 +150,7 @@ fetch(getUrl)
 
         })
 
-      // api url for the fetch request returning the uv index
-      var uviUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lattitude+'&lon='+longitude+'&units=imperial&appid=0ecab4d27a41d8e0ccd885f7bc5922d7';
-
-      //Getting the uvIndex from a second api and setting the value to HTML elements, then chaning the class based on the number. 
-
-      fetch(uviUrl)
-        .then(response => response.json())
-        .then(data => {
-          uviNumber.text(data.current.uvi);
-        })
-        
-
-        let uvVal = uviNumber
-        console.log(uvVal)
-        if(uvVal < 3) {
-          uviNumber.addClass('favorable');
-        } else if (uvVal > 3 && uvVal < 7) {
-          uviNumber.addClass('moderate');
-        } else {
-          uviNumber.addClass('moderate')
-        };
-      
-      
-      })
+    
 
 
 
